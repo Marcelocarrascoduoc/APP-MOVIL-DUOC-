@@ -1,0 +1,82 @@
+.login-background {
+    // Fondo de la página
+    --background: #2d2d3083;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; // Esto garantiza altura completa de la ventana
+}
+
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 50px 20px;
+    background: #0d283a;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-family: 'SkeletonAPP', Arial, sans-serif;
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: hsla(0, 0%, 100%, 0.973);
+}
+
+.login-form {
+    display: flex; // ← aquí estaba el error
+    flex-direction: column;
+    gap: 15px;
+}
+
+.custom-input {
+    --background: #141212e0;
+    --color: #ffffffea;
+    --placeholder-color: #aaaaaa;
+    --border-color: #333;
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.login-button {
+    --background: #000000d5;
+    --color: #ffffff;
+    margin-top: 10px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #aaa;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: #333;
+}
+
+.or {
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.forgot {
+    margin-top: 20px;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.register {
+    margin-top: 25px;
+    font-size: 14px;
+
+    a {
+        color: hsla(0, 0%, 100%, 0.486);
+        text-decoration: none;
+        font-weight: bold;
+    }
+}

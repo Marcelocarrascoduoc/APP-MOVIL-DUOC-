@@ -1,0 +1,42 @@
+<ion-content class="ion-padding login-background">
+  <div class="login-container">
+    <h1 class="logo">SkeletonApp</h1>
+
+    <form (ngSubmit)="login()" class="login-form">
+      <ion-input
+        placeholder="Teléfono, usuario o correo electrónico"
+        type="text"
+        [(ngModel)]="email"
+        name="email"
+        required
+        class="custom-input"
+      ></ion-input>
+
+      <ion-input
+        placeholder="Contraseña"
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        class="custom-input"
+      ></ion-input>
+
+      <ion-button expand="block" type="submit" class="login-button">
+        Entrar
+      </ion-button>
+    </form>
+
+    <div class="divider">
+      <div class="line"></div>
+      <div class="or">o</div>
+      <div class="line"></div>
+    </div>
+
+    <p class="forgot">¿Has olvidado la contraseña?</p>
+
+    <div class="register">
+      ¿No tienes una cuenta?
+      <a href="#">Regístrate</a>
+    </div>
+  </div>
+</ion-content>
