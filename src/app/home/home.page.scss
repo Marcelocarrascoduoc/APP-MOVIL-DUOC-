@@ -1,6 +1,6 @@
 #container {
   text-align: center;
-
+  color: #0d47a1;
   position: absolute;
   left: 0;
   right: 0;
@@ -24,4 +24,29 @@
 
 #container a {
   text-decoration: none;
+}
+
+.animated-input.animate {
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.titulo-bienvenido {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 24px;
+  margin-bottom: 16px;
 }

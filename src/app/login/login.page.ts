@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
+import { Router } from '@angular/router'; // Importamos Router si es necesario para navegación
 
 @Component({
   selector: 'app-login',
@@ -9,25 +10,18 @@ import { NavController, AlertController } from '@ionic/angular';
 })
 export class LoginPage {
 
-  email: string = '';
+  email: string = ''; // declaramos las variables que vamos a utilizar
   password: string = '';
 
-  constructor(
-    private navCtrl: NavController,
-    private alertCtrl: AlertController
+  constructor( // Ingresamos los servicios necesarios
+    private navCtrl: NavController, // para la navegación
+    private alertCtrl: AlertController // para mostrar alertas
   ) {}
 
-  async login() {
-    // Validación simple
-    if (this.email === 'admin@example.com' && this.password === '123456') {
-      this.navCtrl.navigateRoot('/home'); // Ruta a la página de inicio
-    } else {
-      const alert = await this.alertCtrl.create({
-        header: 'Error',
-        message: 'Correo o contraseña incorrectos',
-        buttons: ['OK'],
-      });
-      await alert.present();
-    }
+  async login() { // Método para manejar el inicio de sesión 
+    this.navCtrl.navigateRoot('/home', {
+      state: { email: this.email }
+    });
   }
+
 }

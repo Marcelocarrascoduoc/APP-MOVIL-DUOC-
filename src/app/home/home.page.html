@@ -1,20 +1,75 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> SkeletonAPP </ion-title>
+    <!-- Título de la página -->
   </ion-toolbar>
 </ion-header>
+<ion-content class="ion-padding">
+  <!-- Contenido de la página Bienvenido  -->
+  <h1 class="titulo-bienvenido">Bienvenido!</h1>
+  <p>Usuario: {{ usuario }}</p>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input
+        [(ngModel)]="nombre"
+        name="nombre"
+        class="animated-input"
+        #nombreInput="ngModel"
+      >
+      </ion-input>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input
+        [(ngModel)]="apellido"
+        name="apellido"
+        class="animated-input"
+        #apellidoInput="ngModel"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nivel Educación</ion-label>
+      <ion-select [(ngModel)]="educacion" name="educacion">
+        <ion-select-option value="Primaria">Enseñanza Basica</ion-select-option>
+        <ion-select-option value="Secundaria"
+          >Enseñanza Media</ion-select-option
+        >
+        <ion-select-option value="Universitaria"
+          >Universitaria</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha Nacimiento</ion-label>
+      <ion-datetime
+        display-format="DD/MM/YYYY"
+        [(ngModel)]="fechaNacimiento"
+        name="fechaNacimiento"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            expand="block"
+            (click)="limpiar(nombreInput, apellidoInput)"
+            >Limpiar</ion-button
+          >
+        </ion-col>
+
+        <ion-col>
+          <ion-button expand="block" (click)="mostrar()"> Mostrar </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <p class="footer">App desarrollada por Marcelo Carrasco</p>
 </ion-content>
