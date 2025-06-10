@@ -1,47 +1,53 @@
-.login-background {
-    // Fondo de la página
-    --background: #2d2d3083;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
+ion-content {
+    --background: none;
+    background: url('/assets/img/login_fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .login-container {
-    width: 100%;
-    max-width: 350px;
-    padding: 50px 20px;
-    background: #0d283a;
-    text-align: center;
-    color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
 }
 
 .logo {
-    font-family: 'SkeletonAPP', Arial, sans-serif;
-    font-size: 48px;
-    margin-bottom: 30px;
-    color: hsla(0, 0%, 100%, 0.973);
+    width: 150px;
+    margin: 0 auto 20px auto; // Centrado horizontalmente
+    opacity: 0.9;
+    display: block;
 }
 
 .login-form {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
+    width: 100%;
+    max-width: 320px; // Ajusta el ancho máximo del formulario
+    padding: 24px 18px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    margin: 0 auto;
 }
 
 .custom-input {
-    --background: #141212e0;
-    --color: #ffffffea;
-    --placeholder-color: #aaaaaa;
-    --border-color: #333;
-    padding: 12px;
-    border-radius: 15px;
+    --background: #4673d471;
+    --color: #000000; // Cambia el color del texto a negro
+    --placeholder-color: #dddddd;
+    --border-color: #aaaaaa;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffffd8; // Asegura el color del texto en negro
 }
 
 .login-button {
-    --background: #000000d5;
+    --background: #103fbed5;
     --color: #ffffff;
     margin-top: 10px;
 }
@@ -79,4 +85,9 @@
         text-decoration: none;
         font-weight: bold;
     }
+}
+
+ion-item {
+    --background: transparent;
+    background: transparent;
 }

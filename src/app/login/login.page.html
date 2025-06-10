@@ -1,38 +1,42 @@
 <ion-content class="ion-padding">
   <div class="login-container">
-    <h1 class="logo">SkeletonApp</h1>
+    <img src="/assets/img/Milo-store.jpg" alt="Milo-store-Logo" class="logo" />
 
-    <!-- Formulario de inicio de sesion -->
     <!--Ingreso Usuario-->
-    <form (ngSubmit)="login()" class="login-form">
+    <form (ngSubmit)="login()" #loginForm="ngForm" class="login-form">
       <ion-item>
-        <ion-label position="floating">Usuario</ion-label>
+        <ion-label position="floating">Correo electrónico</ion-label>
         <ion-input
+          class="custom-input"
           [(ngModel)]="email"
           name="email"
-          type="text"
-          minlength="3"
-          maxlength="8"
-          pattern="[a-zA-Z0-9]+"
+          type="email"
           required
+          email
         ></ion-input>
       </ion-item>
-      <!--ingreso contraseña-->
+
       <ion-item>
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input
+          class="custom-input"
           [(ngModel)]="password"
           name="password"
           type="password"
-          minlength="4"
-          maxlength="4"
-          pattern="[0-9]*"
           required
-          inputmode="numeric"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
+          minlength="8"
+          maxlength="20"
         ></ion-input>
       </ion-item>
 
-      <ion-button expand="block" type="submit" class="login-button">
+      <!--Boton del Login-->
+      <ion-button
+        expand="block"
+        type="submit"
+        class="login-button"
+        [disabled]="!loginForm.form.valid"
+      >
         Ingresar
       </ion-button>
     </form>
@@ -45,9 +49,9 @@
 
     <p class="forgot">¿Has olvidado la contraseña?</p>
 
-    <div class="register">
+    <div class="registro">
       ¿No tienes una cuenta?
-      <a href="#">Regístrate</a>
+      <a href="#" (click)="registro(); $event.preventDefault()">Regístrate</a>
     </div>
   </div>
 </ion-content>

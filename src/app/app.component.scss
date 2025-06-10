@@ -1,0 +1,44 @@
+/* Fondo del contenido del menú */
+.custom-menu-content {
+    --background: rgba(28, 55, 129, 0.95);
+    /* Azul oscuro semitransparente */
+    backdrop-filter: blur(6px);
+}
+
+/* Encabezado del menú */
+.custom-menu-header {
+    background-color: rgba(28, 55, 129, 0.95);
+    color: #fff;
+    padding: 16px;
+}
+
+/* Barra superior del menú */
+.custom-menu-toolbar {
+    --background: rgba(28, 55, 129, 0.95);
+    color: #fff;
+}
+
+/* Íconos */
+ion-item ion-icon {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+/* Etiquetas de texto */
+ion-item ion-label {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Estilo de los ítems */
+ion-item {
+    --background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Hover */
+ion-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}

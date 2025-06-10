@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router'; // <-- Importa ActivatedRoute
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,14 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
   usuario: string = '';
-  nombre: string = '';
-  apellido: string = '';
-  educacion: string = '';
-  fechaNacimiento: any;
+  email: string = '';
+  password: string = '';
 
-  constructor(private alertCtrl: AlertController) {
+  constructor(
+    private router: Router,
+    private menu: MenuController,
+    private route: ActivatedRoute // <-- Inyecta ActivatedRoute
+  ) {
     // Se recibe al usuario desde el login 
     const nav = window.history.state;
     if (nav && nav.email) {
@@ -22,30 +25,16 @@ export class HomePage {
     }
   }
 
-  limpiar(nombreInput: any, apellidoInput: any) {
-    this.nombre = '';
-    this.apellido = '';
-    this.educacion = '';
-    this.fechaNacimiento = '';
-
-    // Limpia los campos del formulario
-    nombreInput.control.markAsTouched();
-    apellidoInput.control.markAsTouched();
-
-    const inputs = document.querySelectorAll('.animated-input');
-    inputs.forEach(input => {
-      input.classList.remove('animate');
-      void (input as HTMLElement).offsetWidth; 
-      input.classList.add('animate');
+  ngOnInit() { 
+    this.menu.close("mainMenu");
+    // Obtener los parámetros de la URL
+    this.route.queryParams.subscribe(params => {
+      this.email = params['email'];
+      this.password = params['password'];
     });
   }
 
-  async mostrar() {
-    const alert = await this.alertCtrl.create({
-      header: 'Usuario',
-      message: `Su nombre es ${this.nombre} ${this.apellido}`,
-      buttons: ['OK']
-    });
-    await alert.present();
+  irAProductos() {
+    this.router.navigate(['/productos']);
   }
 }

@@ -16,6 +16,21 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  { 
+    path: 'registro', 
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule) 
+  },  {
+    path: 'productos',
+    loadChildren: () => import('./productos/productos.module').then( m => m.ProductosPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
+  }
 
 ];
 

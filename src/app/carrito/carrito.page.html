@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="center-title"> Micarrito</ion-title>
+    <!-- centrado del titulo-->
+
+    <ion-buttons slot="end">
+      <!-- Boton a la derecha -->
+      <ion-menu-button menu="mainMenu"></ion-menu-button>
+      <!-- Botón de menú -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let producto of productos">
+      <ion-label> {{ producto.nombre }} - ${{ producto.precio }} </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="vaciarCarrito()">
+    Vaciar carrito
+  </ion-button>
+</ion-content>

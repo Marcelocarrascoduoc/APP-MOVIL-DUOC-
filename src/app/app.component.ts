@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { Router, NavigationEnd } from '@angular/router'; // <-- Asegúrate de importar NavigationEnd
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +10,19 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private menu: MenuController, private router: Router) {
+    // Cerrar el menú en cada navegación
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.menu.close('mainMenu');
+      });
+  }
+
+  cerrarSesion() {
+    console.log('Sesión cerrada');
+    this.menu.close('mainMenu');
+    this.router.navigate(['/login']);
+  }
 }
+

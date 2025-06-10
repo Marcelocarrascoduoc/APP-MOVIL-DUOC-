@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Boton a la izquierda -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      <!-- Botón de retroceso -->
+    </ion-buttons>
+
+    <ion-title class="center-title"> Registro</ion-title>
+    <!-- centrado del titulo-->
+
+    <ion-buttons slot="end">
+      <!-- Boton a la derecha -->
+      <ion-menu-button menu="mainMenu"></ion-menu-button>
+      <!-- Botón de menú -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!--CREACION DE CAMPOS-->
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input type="text" [(ngModel)]="apellido"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="email" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nivel de Educacion</ion-label>
+        <ion-select [(ngModel)]="selectedOption">
+          <ion-select-option value="option1"
+            >Enseñanza Basica</ion-select-option
+          >
+          <ion-select-option value="option2"
+            >Enseañanza Media</ion-select-option
+          >
+          <ion-select-option value="option3">Universitario</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha Nacimiento</ion-label>
+        <ion-item>
+          <!-- Calendario con angular material -->
+          <mat-form-field>
+            <mat-label>dd/mm/yyyy</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [(ngModel)]="selectedDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </ion-item>
+      </ion-item>
+    </ion-card-content>
+
+    <!-- Creamos el boton -->
+
+    <ion-button (click)="guardar()" expand="block" fill="clear"
+      >Guardar Datos</ion-button
+    >
+  </ion-card>
+  <p class="footer">App desarrollada por Marcelo Carrasco</p>
+</ion-content>

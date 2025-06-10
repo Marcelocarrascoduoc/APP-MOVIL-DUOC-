@@ -24,4 +24,7 @@ export class LoginPage {
     });
   }
 
+  registro() {
+    this.navCtrl.navigateForward('/registro');
+  }
 }

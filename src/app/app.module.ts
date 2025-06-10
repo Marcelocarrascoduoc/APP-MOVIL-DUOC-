@@ -7,6 +7,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importante para las animaciones de Angular Material
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
